@@ -1,252 +1,588 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Title -->
-    <title>SOLAPP</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon" />
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <!--Owlcarousel CSS -->
-    <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-    <!--Responsive Menu  CSS -->
-    <link rel="stylesheet" href="/css/responsive-menu.css" />
-    <!-- Font awesome CSS -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="/css/animate.css">
-
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,600i,700" rel="stylesheet">
-</head>
-
-<body class="home-dark">
-    <!-- ======================== START HEADER AREA HERE ====================================== -->
-    <header class="themeix-header clearfix mb-5">
-        <div class="themeix-header-navigation">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div class="themeix-logo">
-                            <a class="themeix-brand" href="#">Okandeji</a>
-                        </div>
-                    </div>
-                    <div class="col-md-10">
-
-                        <div id="themeix-menu">
-                            <ul>
-                                <li class="active has-sub"><a href="#" target="_blank"> Home</a>
-								</li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Service</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
+  <head>
+    <title>{{config('app.name', 'SOLAPP')}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="keywords" content="blog, business, entertainment, news, sport, wedding">
+    <meta name="author" content="Okandeji">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="/assets/css/custom_bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/elegant.css">
+    <link rel="stylesheet" href="/assets/css/plyr.css">
+    <link rel="stylesheet" href="/assets/css/aos.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="shortcut icon" href="/assets/images/shortcut_logo.png">
+  </head>
+  <body>
+    <div id="main">
+      <header>
+        <div class="header-wrapper">
+          <div class="container">
+            <div class="header-menu">
+              <div class="row no-gutters align-items-center justify-content-center">
+                <div class="col-4 col-md-2"><a class="logo" href="/"><img src="/assets/images/logo.png" alt="logo"></a></div>
+                <div class="col-8 col-md-8">
+                  <div class="mobile-menu"><a href="#" id="showMenu"><i class="fas fa-bars"></i></a></div>
+                  <nav class="navigation">
+                    <ul>
+                      <li class="nav-item"><a class="pisen-nav-link active" href="/">Home</a><i class="submenu-opener fas fa-plus"></i>
+                      </li>
+                      <li class="nav-item"><a class="pisen-nav-link" href="/services">Services</a><i class="submenu-opener fas fa-plus"></i>
+                      </li>
+                      <li class="nav-item"><a class="pisen-nav-link" href="/about">About us</a></li>
+                      <li class="nav-item"><a class="pisen-nav-link" href="#">Contact</a></li>
+                    </ul>
+                  </nav>
                 </div>
+                <div class="col-0 col-xl-2">
+                  <div class="menu-function">
+                    <div id="search"><a class="search-btn" href="#"><i class="fas fa-search"></i></a></div>
+                    <div class="social-contact"><a href="#/"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-dribbble"></i></a></div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </header>
-
-    <!-- ======================== END HEADER AREA HERE ================================= -->
-    <!-- ================= START HERO AREA HERE ================================= -->
-
-    <!-- ================= END HERO AREA HERE ================================= -->
-    <!-- =================== START MAIN CONTENT AREA HERE ========================-->
-    <main class="main-content-area section-padding clearfix wow fadeIn" data-wow-duration="2s">
-        <div class="blog-wrapper">
-            <div class="container">
-                @if(count($posts)>0)
-                  @foreach($posts as $post)
-                <div class="post-wrapper">
-                    <div class="col-lg-12 mx-auto">
-                        <div class="row">
-                            <div class="row d-md-flex wow fadeIn mb-50" data-wow-duration="2s">
-                                <div class="col-lg-6">
-                                    <div class="post-thumb">
-                                        <img src="/storage/cover_images/{{$post->cover_image}}" alt="" /></a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="post-details">
-                                        <div class="post-meta d-flex">
-                                            <p><i class="fa fa-tag"></i><a href="#">{{$post->title}}</a></p>
-                                            {{--  <div class="border-line"></div>  --}}
-                                        </div>
-                                        <div class="title">
-                                            <h2><a href="/posts/{{$post->id}}">{{$post->header}}</a></h2></div>
-                                        <div class="post-centent">
-                                            <p>{{$post->paragraph}} </p>
-                                        </div>
-                                        <div class="post-author d-lg-flex justify-content-between ">
-                                            <div class="author-details  d-flex align-items-center">
-                                                <div class="author"><img src="https://demo.themeix.com/html/axobiz/assets/images/author2.png" alt="" />
-                                                </div>
-                                                <div class="author-des">
-                                                    <p><a href="#">{{$post->user->name}}</a><span>{{$post->created_at}}</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="btn-more"><a href="/posts/{{$post->id}}">Read More</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+      </header><!--End header-->
+      @if(count($posts) > 0)
+      <section class="posts blog-news">
+        <div class="container">
+          <div class="blog-news_bundle">
+            <div class="row no-gutters">
+                @foreach($posts as $post)
+              <div class="col-12 col-lg-6">
+                <div class="post-classic-tib big-post" style="background-image: url('assets/images/blog_news/news-bundle-big.png')">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="#">tech</a></div>
+                    </div><a class="post-title title" href="/posts/{{$post->id}}">{{$post->title}}</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">{{$post->user->name}}</h5>
+                      </div>
                     </div>
+                  </div>
+                  <div class="post-overlay"></div>
                 </div>
-                @endforeach
-                    {{$posts->links()}}
-                @else
-                <p>No posts found</p>
-                @endif
-                {{--  <div class="row">
-                    <div class="col-lg-12">
-                        <div class="post-pagi-text d-flex justify-content-between">
-                            <p><a href="dark-index.html#">PREVIOUS</a></p>
-                            <p> 1 / 2</p>
-                            <p><a href="dark-index.html#">NEWER</a></p>
+              </div>
+              @endforeach
+              <div class="col-12 col-lg-6">
+                <div class="row no-gutters">
+                  <div class="col-12 col-sm-6 col-lg-6">
+                    <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-1.png')">
+                      <div class="post-detail">
+                        <div class="post-credit">
+                          <div class="post-tag"><a href="index.html">tech</a></div>
+                        </div><a class="post-title title" href="blog_detail.html">How Our App Gets You Speaking A Language </a>
+                        <div class="post-credit">
+                          <div class="author">
+                            <h5 class="author-name">Lucas Norman</h5>
+                          </div>
                         </div>
+                      </div>
+                      <div class="post-overlay"></div>
                     </div>
-                </div>  --}}
+                  </div>
+                  <div class="col-12 col-sm-6 col-lg-6">
+                    <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-2.png')">
+                      <div class="post-detail">
+                        <div class="post-credit">
+                          <div class="post-tag"><a href="index.html">tech</a></div>
+                        </div><a class="post-title title" href="blog_detail.html">Ecotourism in Thailand: 5 Beautiful Destinations</a>
+                        <div class="post-credit">
+                          <div class="author">
+                            <h5 class="author-name">Lucas Norman</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-overlay"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-3.png')">
+                      <div class="post-detail">
+                        <div class="post-credit">
+                          <div class="post-tag"><a href="index.html">tech</a></div>
+                        </div><a class="post-title title" href="blog_detail.html">This $99 Drone Is The Most Incredible </a>
+                        <div class="post-credit">
+                          <div class="author">
+                            <h5 class="author-name">Lucas Norman</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-overlay"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-    </main>
-
-    <!-- ======================== END MAIN CONTENT AREA HERE ========================-->
-    <!-- ============== START FOOTER AREA HERE ===================================== -->
-    <!-- ==================== START FOOTER AREA ===================================== -->
-    <footer>
-        <div class="footer-area clearfix">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="footer-widget">
-                                    <div class="widget-title">
-                                        <h3>About Us</h3>
-                                    </div>
-                                    <div class="widget-details">
-                                        <p>Dorem ipsamet ons adipiscing elit.consectetur adipiscing elit duis vehicula </p>
-                                        <div class="social-icon">
-                                            <ul class="d-flex">
-                                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="offset-lg-1 col-lg-5 col-sm-6">
-                                <div class="footer-widget">
-                                    <div class="widget-title">
-                                        <h3>Useful Link
-                                      </h3>
-                                    </div>
-                                    <div class="widget-details">
-                                        <div class="widget-link">
-                                            <ul>
-                                                <li><a href="#">Our category</a></li>
-                                                <li><a href="#">Contact Us</a></li>
-                                                <li><a href="#">About Us</a></li>
-                                                <li><a href="#">Style Guids</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+          </div>
+          <div class="blog-news_bundle hot-news-bundle">
+            <h1 class="bundle-title">Hot News</h1>
+            <div class="row">
+              <div class="col-12 col-lg-6">
+                <div class="post-block post-classic">
+                  <div class="post-img"><img src="assets/images/blog_news/hot-new-big.png" alt="post image"></div>
+                  <div class="post-detail"><a class="post-title regular" href="blog_detail.html">North Dakota Learns From Norway</a>
+                    <div class="post-credit">
+                      <div class="author"><a class="author-avatar" href="#"><img src="assets/images/avatar/avatar-1.png" alt="auhtor"></a>
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                      <h5 class="upload-day">February 17, 2019</h5>
+                      <div class="post-tag"><a href="index.html">pet</a></div>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="footer-widget">
-                                    <div class="widget-title">
-                                        <h3>Tags Cloud
-                                      </h3>
-                                    </div>
-                                    <div class="widget-details">
-                                        <div class="tags">
-                                            <ul>
-                                                <li><a href="#">Travel</a></li>
-                                                <li><a href="#">Clean</a></li>
-                                                <li><a href="#">Web</a></li>
-                                                <li><a href="#">Design</a></li>
-                                                <li><a href="#">Html</a></li>
-                                                <li><a href="#">Video</a></li>
-                                                <li><a href="#">History</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6  col-sm-6">
-                                <div class="footer-widget subscribe">
-                                    <div class="widget-title">
-                                        <h3>Subscribe Us</h3>
-                                    </div>
-                                    <div class="widget-details">
-                                        <form action="dark-index.html#">
-                                            <input type="email" placeholder="Your Email" />
-                                            <button type="submit" class="buttonfx curtainup">Subscribe Now</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="post-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation... </p>
+                  </div>
                 </div>
+              </div>
+              <div class="col-12 col-lg-6">
                 <div class="row">
-                    <div class="col">
-                        <div class="footer-bottom text-center">
-                            <p>Copyright &copy <a href="#">Okandeji</a> 2019</p>
+                  <div class="col-12 col-md-6 col-lg-12">
+                    <div class="post-mini_block"><img src="assets/images/blog_news/hot-mini-post-1.png" alt="post image">
+                      <div class="post-detail">
+                        <div class="post-credit">
+                          <div class="post-tag"><a href="index.html">pet</a></div>
+                        </div><a class="post-title title-small" href="blog_detail.html">U.S. Interventions in Latin America, in Photos</a>
+                        <div class="post-credit">
+                          <div class="author">
+                            <h5 class="author-name">Lucas Norman</h5>
+                          </div>
                         </div>
+                      </div>
                     </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-12">
+                    <div class="post-mini_block"><img src="assets/images/blog_news/hot-mini-post-2.png" alt="post image">
+                      <div class="post-detail">
+                        <div class="post-credit">
+                          <div class="post-tag"><a href="index.html">pet</a></div>
+                        </div><a class="post-title title-small" href="blog_detail.html">‘Survival Math’ Opens Some Personal Wounds but Leaves Others Hidden</a>
+                        <div class="post-credit">
+                          <div class="author">
+                            <h5 class="author-name">Lucas Norman</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-12">
+                    <div class="post-mini_block"><img src="assets/images/blog_news/hot-mini-post-3.png" alt="post image">
+                      <div class="post-detail">
+                        <div class="post-credit">
+                          <div class="post-tag"><a href="index.html">pet</a></div>
+                        </div><a class="post-title title-small" href="blog_detail.html">How to View Breast Cancer Survival Rates</a>
+                        <div class="post-credit">
+                          <div class="author">
+                            <h5 class="author-name">Lucas Norman</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+          <div class="blog-news_bundle video-bundle">
+            <h1 class="bundle-title">Featured Videos</h1>
+            <div class="row">
+              <div class="col-12">
+                <div class="post-block post-video-text-in_block">
+                  <div class="post-text-in">
+                    <div class="post-video">
+                      <video id="player" poster="assets/images/homepage1/post-6.png" playsinline="" controls="">
+                        <source src="assets/images/audio+video/video.mp4" type="video/mp4">
+                        <track kind="captions" label="English captions" src="" srclang="en" default="">
+                      </video>
+                    </div>
+                    <div class="post-detail">
+                      <div class="post-credit">
+                        <div class="post-tag"><a href="index.html">tech</a></div>
+                      </div><a class="post-title title" href="blog_detail.html">10 Things Amazon Echo Can Do That Apple’s Siri Can’t</a>
+                      <div class="post-credit">
+                        <div class="author">
+                          <h5 class="author-name">Lucas Norman</h5>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-overlay"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="post-block post-with-video">
+                  <div class="post-video">
+                    <video id="player2" poster="assets/images/blog_news/video-1.png" playsinline="" controls="">
+                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
+                      <track kind="captions" label="English captions" src="" srclang="en" default="">
+                    </video>
+                  </div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Tiger Woods Withdraws From Arnold </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="post-block post-with-video">
+                  <div class="post-video">
+                    <video id="player3" poster="assets/images/blog_news/video-4.png" playsinline="" controls="">
+                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
+                      <track kind="captions" label="English captions" src="" srclang="en" default="">
+                    </video>
+                  </div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">After a Flurry of Deals, Zack Greinke </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="post-block post-with-video">
+                  <div class="post-video">
+                    <video id="player4" poster="assets/images/blog_news/video-2.png" playsinline="" controls="">
+                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
+                      <track kind="captions" label="English captions" src="" srclang="en" default="">
+                    </video>
+                  </div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="post-block post-with-video">
+                  <div class="post-video">
+                    <video id="player5" poster="assets/images/blog_news/video-3.png" playsinline="" controls="">
+                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
+                      <track kind="captions" label="English captions" src="" srclang="en" default="">
+                    </video>
+                  </div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its Reign </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-news_bundle lastest-post-bundle">
+            <h1 class="bundle-title">Latest Posts</h1>
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="post-block post-classic">
+                  <div class="post-img"><img src="assets/images/blog_news/lastest-news-1.png" alt="post image"></div>
+                  <div class="post-detail"><a class="post-title regular" href="blog_detail.html">Tiger Woods Withdraws From Arnold </a>
+                    <div class="post-credit">
+                      <div class="author"><a class="author-avatar" href="#"><img src="assets/images/avatar/avatar-1.png" alt="auhtor"></a>
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                      <h5 class="upload-day">February 17, 2019</h5>
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div>
+                    <p class="post-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="post-block post-classic">
+                  <div class="post-img"><img src="assets/images/blog_news/lastest-news-2.png" alt="post image"></div>
+                  <div class="post-detail"><a class="post-title regular" href="blog_detail.html">North Dakota Learns From Norway</a>
+                    <div class="post-credit">
+                      <div class="author"><a class="author-avatar" href="#"><img src="assets/images/avatar/avatar-2.png" alt="auhtor"></a>
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                      <h5 class="upload-day">February 17, 2019</h5>
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div>
+                    <p class="post-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="post-block post-classic mini-post-classic">
+                  <div class="post-img"><img src="assets/images/homepage2/post-1.png" alt="post image"></div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="post-block post-classic mini-post-classic">
+                  <div class="post-img"><img src="assets/images/homepage2/post-2.png" alt="post image"></div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="post-block post-classic mini-post-classic">
+                  <div class="post-img"><img src="assets/images/homepage2/post-3.png" alt="post image"></div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-md-3">
+                <div class="post-block post-classic mini-post-classic">
+                  <div class="post-img"><img src="assets/images/homepage2/post-4.png" alt="post image"></div>
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">tech</a></div>
+                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="blog-news_bundle recent-view-bundle">
+            <h1 class="bundle-title">Recent view</h1>
+            <div class="row">
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-1.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-2.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-3.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-4.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-5.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-6.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-7.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-8.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-lg-4">
+                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-9.png" alt="post image">
+                  <div class="post-detail">
+                    <div class="post-credit">
+                      <div class="post-tag"><a href="index.html">pet</a></div>
+                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                    <div class="post-credit">
+                      <div class="author">
+                        <h5 class="author-name">Lucas Norman</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
-    <!-- ==================== END FOOTER AREA HERE ===================================== -->
-    <!-- ==================== PRELOADER HERE ===================================== -->
-    <div class="preloader" id="preloader">
-        <div class="lds-ripple">
-            <div></div>
-            <div></div>
+      </section><!--End news-->
+      <section class="instagram">
+        <div class="container">
+          <div class="instagram-posts"><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/1.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/2.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/3.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/4.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/5.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/3.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a><a class="instagram-img_block" href="https://www.instagram.com/"><img src="assets/images/instagram/2.png" alt="instagram post">
+              <div class="instagram-post_block"><i class="fab fa-instagram"></i>
+                <p>Pisen_Instagram</p>
+              </div></a></div>
         </div>
+      </section><!--End instagram-->
+      @else
+       <p>No posts found</p>
+    @endif
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                  <div class="footer-contact">
+                    <div class="social-contact"><a class="icon-btn" href="#"><i class="fab fa-facebook-f"></i></a><a class="icon-btn" href="#"><i class="fab fa-instagram"></i></a><a class="icon-btn" href="#"><i class="fab fa-twitter"></i></a><a class="icon-btn" href="#"><i class="fab fa-dribbble"></i></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <p class="copyright">Copyright ©2019 Okandeji</p>
+            </div>
+          </div>
+        </div>
+      </footer><!--End footer-->
+      <script src="/assets/js/jquery-3.4.0.min.js"></script>
+      <script src="/assets/js/jquery-ui.min.js"></script>
+      <script src="/assets/js/slick.min.js"></script>
+      <script src="/assets/js/plyr.min.js"></script>
+      <script src="/assets/js/aos.js"></script>
+      <script src="/assets/js/jquery.scrollUp.min.js"></script>
+      <script src="/assets/js/masonry.pkgd.min.js"></script>
+      <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+      <script src="/assets/js/numscroller-1.0.js"></script>
+      <script src="/assets/js/jquery.countdown.min.js"></script>
+      <script src="/assets/js/main.js"></script>
     </div>
-    <!-- ==================== PRELOADER END ===================================== -->
-    <!-- ====================ALL JS FILE HERE===================================== -->
-    <!-- jQuery -->
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <!-- easing efect JS -->
-    <script src="/js/easing.js"></script>
-    <!-- owlcarousel  JS -->
-    <script src="/js/owl.carousel.min.js"></script>
-    <!-- Responsive menu JS -->
-    <script src="/js/responsive-menu.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- waypoints JS -->
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <!-- menu JS -->
-    <script src="/js/menumaker.min.js"></script>
-    <!-- wow JS -->
-    <script src="/js/wow.min.js"></script>
-    <!-- main  JS -->
-    <script src="/js/main.js"></script>
-{{--  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="0fb3e5b5-1038-45e7-a153-173d144eee90";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>  --}}
-</body>
-
+  </body>
 </html>

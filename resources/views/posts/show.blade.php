@@ -24,7 +24,7 @@
     @include('partials._comment_replies', ['comments' => $post->comments, 'post_id' => $post->id])
     @foreach($post->comments as $comment)
         <div class="display-comments">
-            <strong>{{ $comment->user->name }}</strong>
+            <strong>{{ $comment->name }}</strong>
             <p>{{ $comment->body }}</p>
         </div>
     @endforeach
@@ -36,8 +36,14 @@
                 <form action="{{ route('comment.add') }}" method="post">
                         @csrf
                     <div class="form-group">
-                        <textarea name="comment_body" id="" class="form-control"></textarea>
+                        <textarea name="comment_body" id="" class="form-control" ></textarea>
                     </div>
+                    <div class="form-group">
+                       <input type="text" name="name" class="form-control" placeholder="Input Your Name" >
+                    </div>
+                    <div class="form-group">
+                       <input type="email" name="email" class="form-control" placeholder="Input Your Email" >
+                            </div>
                     <div class="form-group">
                         <input type="hidden" name="post_id" value="{{$post->id}}">
                     </div>

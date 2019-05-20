@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\post;
-use DB;
 
 class postController extends Controller
 {
@@ -27,13 +26,13 @@ class postController extends Controller
      */
     public function index()
     {
-         // $posts = post:: all();
+        // $posts = post:: all();
         // return post:: where('title', 'Post Two')->get();
         // $posts = DB::select('SELECT * FROM posts');
 
         // $posts = post:: orderBy('title', 'desc' )->get();
         // $posts = post:: orderBy('title', 'desc' )->take(1)->get();
-        $posts = post:: orderBy('created_at', 'desc' )->paginate(10);
+        $posts = post:: orderBy('created_at', 'desc')->paginate(2);
         return view('posts.home')->with('posts', $posts);
     }
 
@@ -64,7 +63,7 @@ class postController extends Controller
         ]);
         // Handle file upload
 
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             // Get file name with the extension
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
             // Get just file name
@@ -75,7 +74,7 @@ class postController extends Controller
             $fileNameToStore = $fileName.'_'.time().'.'.$extension;
             // Upload image
             $path = $request->file('cover_image')->storeAs('/public/cover_images', $fileNameToStore);
-        }else{
+        } else {
             $fileNameToStore = 'noimage.jpg';
         }
         // Create Post
@@ -112,8 +111,8 @@ class postController extends Controller
     public function edit($id)
     {
         $post = post::find($id);
-         // Check for correct user
-        if(auth()->user()->id !== $post->user_id){
+        // Check for correct user
+        if (auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unathorized Users');
         }
         return view('posts.edit')->with('post', $post);
@@ -135,7 +134,7 @@ class postController extends Controller
 
         // Handle file upload
 
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             // Get file name with the extension
             $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
             // Get just file name
@@ -151,7 +150,7 @@ class postController extends Controller
         $post = post:: find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        if($request->hasFile('cover_image')){
+        if ($request->hasFile('cover_image')) {
             $post->cover_image = $fileNameToStore;
         }
         $post->save();
@@ -169,10 +168,10 @@ class postController extends Controller
     {
         $post = post::find($id);
         // Check for correct user
-        if(auth()->user()->id !== $post->user_id){
+        if (auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unathorized Users');
         }
-        if($post->cover_image !=='noimage.jpg'){
+        if ($post->cover_image !=='noimage.jpg') {
             // Delete Image
             Storage::delete('/public/cover_images'. $post->cover_image);
         }

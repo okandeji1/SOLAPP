@@ -10,21 +10,24 @@ use DB;
 class pagesControler extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $title = 'Welcome To My Page';
         // return view('pages.index', compact('title')); --For single value
 
         // function to pass multiple values
-        $posts = post:: orderBy('created_at', 'desc' )->paginate(10);
+        $posts = post:: orderBy('created_at', 'desc')->paginate(10);
         return view('posts.home')->with('posts', $posts);
     }
 
-    public function about(){
+    public function about()
+    {
         $title = 'About Us';
         return view('pages.about')->with('title', $title);
     }
 
-    public function services(){
+    public function services()
+    {
         $data = array(
             'title' => 'Services',
             'services' => ['Web Design', 'Programming', 'SEO']);

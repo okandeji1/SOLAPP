@@ -36,10 +36,17 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        $this -> validate($request, [
+            'comment_body' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+        ]);
         $comment = new Comment;
-        $comment->body = $request->get('comment_body');
-        $comment->user()->associate($request->user());
-        $post = post::find($request->get('post_id'));
+        $comment->body = $request->input('comment_body');
+        $comment->name = $request->input('name');
+        $comment->email = $request->input('email');
+        // $comment->user()->associate($request->user());
+        $post = post::find($request->input('post_id'));
         $post->comments()->save($comment);
 
         return back();
@@ -48,15 +55,16 @@ class CommentController extends Controller
     public function replyStore(Request $request)
     {
         $reply = new Comment();
-        $reply->body = $request->get('comment_body');
-        $reply->user()->associate($request->user());
-        $reply->parent_id = $request->get('comment_id');
-        $post = post::find($request->get('post_id'));
+        $reply->body = $request->input('comment_body');
+        // $reply->user()->associate($request->user());
+        $reply->parent_id = $request->input('comment_id');
+        $reply->name = $request->input('name');
+        $reply->email = $request->input('email');
+        $post = post::find($request->input('post_id'));
 
         $post->comments()->save($reply);
 
         return back();
-
     }
 
     /**

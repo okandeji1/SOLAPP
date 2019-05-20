@@ -1,26 +1,30 @@
-<header class="themeix-header clearfix mb-5">
-    <div class="themeix-header-navigation">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="themeix-logo">
-                        <a class="themeix-brand" href="#">Okandeji</a>
-                    </div>
-                </div>
-                <div class="col-md-10">
-
-                    <div id="themeix-menu">
-                        <ul>
-                            <li class="active has-sub"><a href="#" target="_blank"> Home</a>
-                            </li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Service</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-
-                </div>
+<header>
+    <div class="header-wrapper">
+      <div class="container">
+        <div class="header-menu">
+          <div class="row no-gutters align-items-center justify-content-center">
+            <div class="col-4 col-md-2"><a class="logo" href="/"><img src="assets/images/logo.png" alt="logo"></a></div>
+            <div class="col-8 col-md-8">
+              <div class="mobile-menu"><a href="#" id="showMenu"><i class="fas fa-bars"></i></a></div>
+              <nav class="navigation">
+                <ul>
+                  <li class="nav-item"><a class="pisen-nav-link active" href="/">Home</a><i class="submenu-opener fas fa-plus"></i>
+                  </li>
+                  <li class="nav-item"><a class="pisen-nav-link" href="/services">Services</a><i class="submenu-opener fas fa-plus"></i>
+                  </li>
+                  <li class="nav-item"><a class="pisen-nav-link" href="/about">About us</a></li>
+                  <li class="nav-item"><a class="pisen-nav-link" href="#">Contact</a></li>
+                </ul>
+              </nav>
             </div>
+            <div class="col-0 col-xl-2">
+              <div class="menu-function">
+                <div id="search"><a class="search-btn" href="#"><i class="fas fa-search"></i></a></div>
+                <div class="social-contact"><a href="#/"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-dribbble"></i></a></div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</header>
+  </header><!--End header-->

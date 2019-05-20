@@ -1,61 +1,43 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{config('app.name', 'SOLAPP')}}</title>
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon" />
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
-        <!--Owlcarousel CSS -->
-        <link rel="stylesheet" href="/css/owl.carousel.min.css" />
-        <!--Responsive Menu  CSS -->
-        <link rel="stylesheet" href="/css/responsive-menu.css" />
-        <link rel="stylesheet" href="/css/animate.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
-        <!-- Fonts -->
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+        <meta name="keywords" content="blog, business, entertainment, news, sport, wedding">
+        <meta name="author" content="Okandeji | Deer Creative Theme">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <link rel="stylesheet" href="/assets/css/slick.css">
+        <link rel="stylesheet" href="/assets/css/jquery-ui.css">
+        <link rel="stylesheet" href="/assets/css/custom_bootstrap.css">
+        <link rel="stylesheet" href="/assets/css/fontawesome.css">
+        <link rel="stylesheet" href="/assets/css/elegant.css">
+        <link rel="stylesheet" href="/assets/css/plyr.css">
+        <link rel="stylesheet" href="/assets/css/aos.css">
+        <link rel="stylesheet" href="/assets/css/animate.css">
+        <link rel="stylesheet" href="/assets/css/themify-icons.css">
+        <link rel="shortcut icon" href="/assets/images/shortcut_logo.png">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     </head>
     <body>
+      <div id="main">
         @include('inc.navbar')
-        <div class="container">
+        {{--  <div class="container">  --}}
                 @include('inc.messages')
            @yield('content')
-        </div>
-
-        <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-        {{-- <script>
-             CKEDITOR.replace( 'article-ckeditor' );
-        </script> --}}
-
-        <!-- jQuery -->
-    <script src="/js/jquery-3.3.1.min.js"></script>
-    <!-- easing efect JS -->
-    <script src="/js/easing.js"></script>
-    <!-- owlcarousel  JS -->
-    <script src="/js/owl.carousel.min.js"></script>
-    <!-- Responsive menu JS -->
-    <script src="/js/responsive-menu.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- waypoints JS -->
-    <script src="/js/jquery.waypoints.min.js"></script>
-    <!-- menu JS -->
-    <script src="/js/menumaker.min.js"></script>
-    <!-- wow JS -->
-    <script src="/js/wow.min.js"></script>
-    <!-- main  JS -->
-    <script src="/js/main.js"></script>
-    {{--  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="0fb3e5b5-1038-45e7-a153-173d144eee90";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>  --}}
-
-
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        {{--  </div>  --}}
+        @include('inc.footer')
+        <script src="/assets/js/jquery-3.4.0.min.js"></script>
+        <script src="/assets/js/jquery-ui.min.js"></script>
+        <script src="/assets/js/slick.min.js"></script>
+        <script src="/assets/js/plyr.min.js"></script>
+        <script src="/assets/js/aos.js"></script>
+        <script src="/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="/assets/js/masonry.pkgd.min.js"></script>
+        <script src="/assets/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/assets/js/numscroller-1.0.js"></script>
+        <script src="/assets/js/jquery.countdown.min.js"></script>
+        <script src="/assets/js/main.js"></script>
+      </div>
 </body>
 </html>
