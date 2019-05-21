@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <title>{{config('app.name', 'SOLAPP')}}</title>
+        <title>{{ config('app.name', 'BasBlog') }}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
         <meta name="keywords" content="blog, business, entertainment, news, sport, wedding">

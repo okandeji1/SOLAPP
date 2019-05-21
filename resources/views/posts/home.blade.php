@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{config('app.name', 'SOLAPP')}}</title>
+    <title>{{config('app.name', 'BasBlog')}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <meta name="keywords" content="blog, business, entertainment, news, sport, wedding">
@@ -55,13 +55,13 @@
         <div class="container">
           <div class="blog-news_bundle">
             <div class="row no-gutters">
-                @foreach($posts as $post)
+             @foreach($posts as $post)
               <div class="col-12 col-lg-6">
                 <div class="post-classic-tib big-post" style="background-image: url('assets/images/blog_news/news-bundle-big.png')">
                   <div class="post-detail">
                     <div class="post-credit">
                       <div class="post-tag"><a href="#">tech</a></div>
-                    </div><a class="post-title title" href="/posts/{{$post->id}}">{{$post->title}}</a>
+                    </div><a class="post-title title" href="/posts/{{$post->id}}">{{$post->header}}</a>
                     <div class="post-credit">
                       <div class="author">
                         <h5 class="author-name">{{$post->user->name}}</h5>
@@ -71,59 +71,53 @@
                   <div class="post-overlay"></div>
                 </div>
               </div>
+              @break
               @endforeach
               <div class="col-12 col-lg-6">
                 <div class="row no-gutters">
+                  @foreach($posts->chunk(2) as $row)
+                  @foreach($row as $post)
                   <div class="col-12 col-sm-6 col-lg-6">
                     <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-1.png')">
                       <div class="post-detail">
                         <div class="post-credit">
-                          <div class="post-tag"><a href="index.html">tech</a></div>
-                        </div><a class="post-title title" href="blog_detail.html">How Our App Gets You Speaking A Language </a>
+                          <div class="post-tag"><a href="#">news</a></div>
+                        </div><a class="post-title title" href="/posts/{{$post->id}}">{{$post->title}}</a>
                         <div class="post-credit">
                           <div class="author">
-                            <h5 class="author-name">Lucas Norman</h5>
+                            <h5 class="author-name">{{$post->user->name}}</h5>
                           </div>
                         </div>
                       </div>
                       <div class="post-overlay"></div>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-2.png')">
-                      <div class="post-detail">
-                        <div class="post-credit">
-                          <div class="post-tag"><a href="index.html">tech</a></div>
-                        </div><a class="post-title title" href="blog_detail.html">Ecotourism in Thailand: 5 Beautiful Destinations</a>
-                        <div class="post-credit">
-                          <div class="author">
-                            <h5 class="author-name">Lucas Norman</h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="post-overlay"></div>
-                    </div>
-                  </div>
+                  @endforeach
+                  @break
+                  @endforeach
+                  @foreach($posts as $post)
                   <div class="col-lg-12">
                     <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-3.png')">
                       <div class="post-detail">
                         <div class="post-credit">
-                          <div class="post-tag"><a href="index.html">tech</a></div>
-                        </div><a class="post-title title" href="blog_detail.html">This $99 Drone Is The Most Incredible </a>
-                        <div class="post-credit">
+                          <div class="post-tag"><a href="">tech</a></div>
+                        </div><a class="post-title title" href="/posts/{{$post->id}}">{{$post->title}}</a>
+                        <div class="post-credit">blog_detail.html
                           <div class="author">
-                            <h5 class="author-name">Lucas Norman</h5>
+                            <h5 class="author-name">{{$post->user->name}}</h5>
                           </div>
                         </div>
                       </div>
                       <div class="post-overlay"></div>
                     </div>
                   </div>
+                  @break
+                  @endforeach
                 </div>
               </div>
             </div>
           </div>
-          <div class="blog-news_bundle hot-news-bundle">
+          {{--  <div class="blog-news_bundle hot-news-bundle">
             <h1 class="bundle-title">Hot News</h1>
             <div class="row">
               <div class="col-12 col-lg-6">
@@ -188,340 +182,74 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="blog-news_bundle video-bundle">
-            <h1 class="bundle-title">Featured Videos</h1>
-            <div class="row">
-              <div class="col-12">
-                <div class="post-block post-video-text-in_block">
-                  <div class="post-text-in">
-                    <div class="post-video">
-                      <video id="player" poster="assets/images/homepage1/post-6.png" playsinline="" controls="">
-                        <source src="assets/images/audio+video/video.mp4" type="video/mp4">
-                        <track kind="captions" label="English captions" src="" srclang="en" default="">
-                      </video>
-                    </div>
-                    <div class="post-detail">
-                      <div class="post-credit">
-                        <div class="post-tag"><a href="index.html">tech</a></div>
-                      </div><a class="post-title title" href="blog_detail.html">10 Things Amazon Echo Can Do That Apple’s Siri Can’t</a>
-                      <div class="post-credit">
-                        <div class="author">
-                          <h5 class="author-name">Lucas Norman</h5>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="post-overlay"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="post-block post-with-video">
-                  <div class="post-video">
-                    <video id="player2" poster="assets/images/blog_news/video-1.png" playsinline="" controls="">
-                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
-                      <track kind="captions" label="English captions" src="" srclang="en" default="">
-                    </video>
-                  </div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Tiger Woods Withdraws From Arnold </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="post-block post-with-video">
-                  <div class="post-video">
-                    <video id="player3" poster="assets/images/blog_news/video-4.png" playsinline="" controls="">
-                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
-                      <track kind="captions" label="English captions" src="" srclang="en" default="">
-                    </video>
-                  </div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">After a Flurry of Deals, Zack Greinke </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="post-block post-with-video">
-                  <div class="post-video">
-                    <video id="player4" poster="assets/images/blog_news/video-2.png" playsinline="" controls="">
-                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
-                      <track kind="captions" label="English captions" src="" srclang="en" default="">
-                    </video>
-                  </div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <div class="post-block post-with-video">
-                  <div class="post-video">
-                    <video id="player5" poster="assets/images/blog_news/video-3.png" playsinline="" controls="">
-                      <source src="assets/images/audio+video/video.mp4" type="video/mp4">
-                      <track kind="captions" label="English captions" src="" srclang="en" default="">
-                    </video>
-                  </div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its Reign </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div>  --}}
           <div class="blog-news_bundle lastest-post-bundle">
             <h1 class="bundle-title">Latest Posts</h1>
             <div class="row">
+            @foreach($posts->chunk(2) as $row)
+            @foreach($row as $post)
               <div class="col-12 col-md-6">
                 <div class="post-block post-classic">
                   <div class="post-img"><img src="assets/images/blog_news/lastest-news-1.png" alt="post image"></div>
-                  <div class="post-detail"><a class="post-title regular" href="blog_detail.html">Tiger Woods Withdraws From Arnold </a>
+                  <div class="post-detail"><a class="post-title regular" href="/posts/{{$post->id}}">{{$post->header}}</a>
                     <div class="post-credit">
                       <div class="author"><a class="author-avatar" href="#"><img src="assets/images/avatar/avatar-1.png" alt="auhtor"></a>
-                        <h5 class="author-name">Lucas Norman</h5>
+                        <h5 class="author-name">{{$post->user->name}}</h5>
                       </div>
-                      <h5 class="upload-day">February 17, 2019</h5>
+                      <h5 class="upload-day">{{$post->created_at}}</h5>
                       <div class="post-tag"><a href="index.html">tech</a></div>
                     </div>
                     <p class="post-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6">
-                <div class="post-block post-classic">
-                  <div class="post-img"><img src="assets/images/blog_news/lastest-news-2.png" alt="post image"></div>
-                  <div class="post-detail"><a class="post-title regular" href="blog_detail.html">North Dakota Learns From Norway</a>
-                    <div class="post-credit">
-                      <div class="author"><a class="author-avatar" href="#"><img src="assets/images/avatar/avatar-2.png" alt="auhtor"></a>
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                      <h5 class="upload-day">February 17, 2019</h5>
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div>
-                    <p class="post-describe">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+              @break
+              @endforeach
+              @foreach($posts->chunk(4) as $row)
+              @foreach($row as $post)
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="post-block post-classic mini-post-classic">
                   <div class="post-img"><img src="assets/images/homepage2/post-1.png" alt="post image"></div>
                   <div class="post-detail">
                     <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
+                      <div class="post-tag"><a href="#">tech</a></div>
+                    </div><a class="post-title small" href="/posts/{{$post->id}}">{{$post->header}}</a>
                     <div class="post-credit">
                       <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
+                        <h5 class="author-name">{{$post->user->name}}</h5>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="post-block post-classic mini-post-classic">
-                  <div class="post-img"><img src="assets/images/homepage2/post-2.png" alt="post image"></div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="post-block post-classic mini-post-classic">
-                  <div class="post-img"><img src="assets/images/homepage2/post-3.png" alt="post image"></div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-md-3">
-                <div class="post-block post-classic mini-post-classic">
-                  <div class="post-img"><img src="assets/images/homepage2/post-4.png" alt="post image"></div>
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">tech</a></div>
-                    </div><a class="post-title small" href="blog_detail.html">Ajax Stuns Real Madrid, Ending Its </a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+              @break
+              @endforeach
             </div>
           </div>
           <div class="blog-news_bundle recent-view-bundle">
             <h1 class="bundle-title">Recent view</h1>
+            @foreach($posts->chunk(3) as $row)
             <div class="row">
+               @foreach($row as $post)
               <div class="col-12 col-sm-6 col-lg-4">
                 <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-1.png" alt="post image">
                   <div class="post-detail">
                     <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
+                      <div class="post-tag"><a href="#">pet</a></div>
+                    </div><a class="post-title title-small" href="/posts/{{$post->id}}">{{$post->title}}</a>
                     <div class="post-credit">
                       <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
+                        <h5 class="author-name">{{$post->user->name}}</h5>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-2.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-3.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-4.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-5.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-6.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-7.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-8.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-9.png" alt="post image">
-                  <div class="post-detail">
-                    <div class="post-credit">
-                      <div class="post-tag"><a href="index.html">pet</a></div>
-                    </div><a class="post-title title-small" href="blog_detail.html">Yankees’ Luis Severino Scratched, Raising Day</a>
-                    <div class="post-credit">
-                      <div class="author">
-                        <h5 class="author-name">Lucas Norman</h5>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+               @endforeach
             </div>
+            @endforeach
           </div>
         </div>
       </section><!--End news-->

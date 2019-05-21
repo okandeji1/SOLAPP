@@ -3,7 +3,7 @@
       <div class="container">
         <div class="header-menu">
           <div class="row no-gutters align-items-center justify-content-center">
-            <div class="col-4 col-md-2"><a class="logo" href="/"><img src="assets/images/logo.png" alt="logo"></a></div>
+            <div class="col-4 col-md-2"><a class="logo" href="/"><img src="/assets/images/logo.png" alt="logo"></a></div>
             <div class="col-8 col-md-8">
               <div class="mobile-menu"><a href="#" id="showMenu"><i class="fas fa-bars"></i></a></div>
               <nav class="navigation">
