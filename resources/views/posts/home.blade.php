@@ -57,7 +57,7 @@
             <div class="row no-gutters">
              @foreach($posts as $post)
               <div class="col-12 col-lg-6">
-                <div class="post-classic-tib big-post" style="background-image: url('assets/images/blog_news/news-bundle-big.png')">
+                <div class="post-classic-tib big-post" style="background-image: url('img/posts/{{$post->cover_image}}')">
                   <div class="post-detail">
                     <div class="post-credit">
                       <div class="post-tag"><a href="#">tech</a></div>
@@ -78,7 +78,7 @@
                   @foreach($posts->chunk(2) as $row)
                   @foreach($row as $post)
                   <div class="col-12 col-sm-6 col-lg-6">
-                    <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-1.png')">
+                    <div class="post-classic-tib mini-post" style="background-image: url('img/posts/{{$post->cover_image}}')">
                       <div class="post-detail">
                         <div class="post-credit">
                           <div class="post-tag"><a href="#">news</a></div>
@@ -97,7 +97,7 @@
                   @endforeach
                   @foreach($posts as $post)
                   <div class="col-lg-12">
-                    <div class="post-classic-tib mini-post" style="background-image: url('assets/images/blog_news/news-bundle-mini-3.png')">
+                    <div class="post-classic-tib mini-post" style="background-image: url('img/posts/{{$post->cover_image}}')">
                       <div class="post-detail">
                         <div class="post-credit">
                           <div class="post-tag"><a href="">tech</a></div>
@@ -190,7 +190,7 @@
             @foreach($row as $post)
               <div class="col-12 col-md-6">
                 <div class="post-block post-classic">
-                  <div class="post-img"><img src="assets/images/blog_news/lastest-news-1.png" alt="post image"></div>
+                  <div class="post-img"><img src="img/posts/{{$post->cover_image}}" alt="post image"></div>
                   <div class="post-detail"><a class="post-title regular" href="/posts/{{$post->id}}">{{$post->header}}</a>
                     <div class="post-credit">
                       <div class="author"><a class="author-avatar" href="#"><img src="assets/images/avatar/avatar-1.png" alt="auhtor"></a>
@@ -210,7 +210,7 @@
               @foreach($row as $post)
               <div class="col-12 col-sm-6 col-md-3">
                 <div class="post-block post-classic mini-post-classic">
-                  <div class="post-img"><img src="assets/images/homepage2/post-1.png" alt="post image"></div>
+                  <div class="post-img"><img src="img/posts/{{$post->cover_image}}" alt="post image"></div>
                   <div class="post-detail">
                     <div class="post-credit">
                       <div class="post-tag"><a href="#">tech</a></div>
@@ -234,7 +234,7 @@
             <div class="row">
                @foreach($row as $post)
               <div class="col-12 col-sm-6 col-lg-4">
-                <div class="post-mini_block"><img src="assets/images/blog_news/recent-view-1.png" alt="post image">
+                <div class="post-mini_block"><img src="img/posts/{{$post->cover_image}}" alt="post image">
                   <div class="post-detail">
                     <div class="post-credit">
                       <div class="post-tag"><a href="#">pet</a></div>
