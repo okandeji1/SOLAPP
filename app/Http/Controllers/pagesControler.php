@@ -12,12 +12,10 @@ class pagesControler extends Controller
     //
     public function index()
     {
-        $title = 'Welcome To My Page';
-        // return view('pages.index', compact('title')); --For single value
 
         // function to pass multiple values
         $posts = post:: orderBy('created_at', 'desc')->paginate(10);
-        return view('posts.home')->with('posts', $posts);
+        return view('posts.index')->with('posts', $posts);
     }
 
     public function about()
